@@ -70,6 +70,7 @@ O projeto utiliza a biblioteca **[ShadCN UI](https://ui.shadcn.dev/)** como base
 
 - **Abstraída em componentes próprios**, mantendo a identidade visual
 - **Reutilizada com consistência** em todo o app
+- **Utiliza o conceito de Mobile-First** em todo o app
 
 ---
 
@@ -77,6 +78,32 @@ O projeto utiliza a biblioteca **[ShadCN UI](https://ui.shadcn.dev/)** como base
 
 - **React Hook Form** é utilizado para controle dos formulários, garantindo performance e facilidade de integração.
 - **Zod** é usado para validação, com schemas dedicados e mensagens de erro amigáveis.
+
+---
+
+## ✅ Erros
+
+O projeto trata os erros utilizando o **ErrorBoundary** e também o retorno da request, tratando cada campo de forma individual. Também foi criado uma página de Erro Customizada para a aplicação em paralelo a um componente específico para esse cenário.
+
+## ✅ Função de Cálculo
+
+A função foi desenvolvida com base na seguinte lógica:
+
+- **Cartão à vista:** 3,99% de taxa
+- **Cartão parcelado:** 4,99% de taxa base + 2% para cada parcela adicional além da primeira
+
+### 💡 Exemplo de cálculo:
+
+- **Cartão à vista:**  
+  Taxa = **3,99%**
+
+- **Cartão em 2 parcelas:**  
+  Taxa = **4,99%** + **2%** (1 parcela adicional) = **6,99%**
+
+- **Cartão em 3 parcelas:**  
+  Taxa = **4,99%** + **2% × 2** = **8,99%**
+
+Ou seja, a primeira parcela tem uma taxa base de 4,99%, e cada parcela extra adiciona 2% de taxa.
 
 ---
 
