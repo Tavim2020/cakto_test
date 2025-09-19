@@ -1,36 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧪 Projeto com Next.js — Teste Técnico Cakto
 
-## Getting Started
+Este projeto foi desenvolvido utilizando **Next.js 15 com App Router** e foi estruturado com foco em:
 
-First, run the development server:
+- 🧱 Escalabilidade
+- ⚙️ Performance
+- 🧼 Organização de código
+- 🧑‍💻 Experiência do desenvolvedor e do usuário
+
+---
+
+## 📐 Arquitetura e Estrutura
+
+A base do projeto segue os princípios do **Atomic Design**, organizando os componentes em:
+
+- `atoms`
+- `molecules`
+- `organisms`
+- `templates`
+- `pages`
+
+### 🗂️ Organização por domínio (Feature-based)
+
+Cada componente está **encapsulado em sua respectiva pasta** de acordo com a página ou contexto ao qual pertence. Isso facilita:
+
+- A **manutenção** futura
+- O **entendimento** do código
+- A **localização rápida** de partes específicas
+
+---
+
+## 🔧 Estrutura Interna dos Componentes
+
+Cada componente possui uma organização interna padrão, seguindo a nomenclatura:
+
+```
+MeuComponente/
+├── variables/         # Pasta caso necessário de variáveis do componente
+|   ├── index.ts(x)    # Arquivo com variáveis(Ex: Variants) utilizados no componente específico
+├── MeuComponente.comp.tsx         # Componente principal
+├── MeuComponente.interface.ts     # Tipos e interfaces relacionados
+├── MeuComponente.skeleton.tsx     # Utilizado quando necessário o Skeleton para lazy loading
+├── index.ts                       # Arquivo de exportação
+```
+
+Essa estrutura permite que cada componente **contenha tudo que é necessário para seu funcionamento**, promovendo encapsulamento e organização.
+
+---
+
+## 🧩 Agrupamento de Componentes via Objeto
+
+Os componentes relacionados são agrupados em **objetos únicos exportáveis**. Essa abordagem:
+
+- Melhora a **organização**
+- Facilita o **lazy loading com `next/dynamic`**
+- Centraliza a manipulação e uso dos componentes
+
+Exemplo de uso:
+
+```tsx
+<SummaryComponents.Product ... />
+<SummaryComponents.Total ... />
+```
+
+---
+
+## 💅 UI e Design System
+
+O projeto utiliza a biblioteca **[ShadCN UI](https://ui.shadcn.dev/)** como base do sistema de design. Essa UI foi:
+
+- **Abstraída em componentes próprios**, mantendo a identidade visual
+- **Reutilizada com consistência** em todo o app
+
+---
+
+## ✅ Formulários e Validações
+
+- **React Hook Form** é utilizado para controle dos formulários, garantindo performance e facilidade de integração.
+- **Zod** é usado para validação, com schemas dedicados e mensagens de erro amigáveis.
+
+---
+
+## 🔌 Integrações e Simulações
+
+- As requisições são organizadas na pasta `services/`.
+- O projeto simula uma requisição inicial com **delay de 2 segundos** para imitar carregamento real.
+- No submit, uma chamada de exemplo é feita para uma API interna (`/api/checkout/save`) que também tem um **delay de 2 segundos**.
+
+---
+
+## 🧠 Server Components x Client Components
+
+O projeto faz uso estratégico dos **Server Components** para:
+
+- Melhorar o tempo de carregamento
+- Reduzir o bundle do lado do cliente
+
+Os **Client Components** são usados **apenas quando necessário**, como em formulários ou interações com o estado local.
+
+---
+
+## 📁 Estrutura de Pastas
+
+| Pasta         | Descrição                                                       |
+| ------------- | --------------------------------------------------------------- |
+| `app/`        | Contém rotas, páginas e APIs da aplicação (Next.js App Router)  |
+| `components/` | Componentes organizados por Atomic Design e por contexto de uso |
+| `fonts/`      | Fontes utilizadas na aplicação                                  |
+| `lib/`        | Bibliotecas utilitárias (ShadCN, Skeleton, Toast, etc.)         |
+| `services/`   | Integrações com APIs e simulações de requisição                 |
+| `utils/`      | Funções auxiliares de formatação e manipulação de dados         |
+
+---
+
+## 🎯 Objetivo
+
+O projeto foi pensado com foco em:
+
+- **Manutenibilidade a longo prazo**
+- **Experiência do usuário**
+- **Performance no carregamento**
+- **Boas práticas modernas com Next.js**
+
+---
+
+## 🛠️ Tecnologias Principais
+
+- **Next.js (App Router)**
+- **React 19**
+- **TypeScript**
+- **ShadCN UI**
+- **React Hook Form + Zod**
+- **ESLint**
+- **Atomic Design**
+- **Dynamic Imports com `next/dynamic`**
+
+---
+
+<br><br>
+
+# Como Rodar o Projeto
+
+1 - Primeiro você de ter o node instalado, caso tenha basta utilizar o seguinte comando:
+
+```bash
+npm i
+# ou caso tenha o yarn instalado
+yarn
+# ou caso tenha o pnpm instalado
+pnpm i
+```
+
+2 - Após a instalação das dependências basta rodar o seguinte comando
 
 ```bash
 npm run dev
-# or
+# ou caso tenha o yarn instalado
 yarn dev
-# or
+# ou caso tenha o pnpm instalado
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) em seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<br></br>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tela de Checkout
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+![Tela de Checkout](./public/markedown/image.png)

@@ -14,8 +14,6 @@ const generateSelectOptions = (totalValue?: number): ISelectOption[] => {
 
     const fee = index === 0 ? 3.99 : 4.99 + index * 2;
 
-    console.log(fee);
-
     const feeValue = totalValue * (fee / 100);
 
     const total = totalValue + feeValue;
